@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\AppInfo; 
 
 class AuthenticatedSessionController extends Controller
 {
@@ -17,7 +18,8 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        $appInfo = AppInfo::first();
+        return view('auth.login',compact('appInfo'));
     }
 
     /**

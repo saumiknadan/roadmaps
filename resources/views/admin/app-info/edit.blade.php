@@ -23,9 +23,10 @@
                     <div class="card-body" >
                         <div class="row">
                             <div class="col-lg-12 mx-auto">
-                                <form id="forms_data" action="{{ route('app-info.store') }}" method="POST" enctype="multipart/form-data">
+                                <form id="forms_data" action="{{ route('app-info.update', $appInfo->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                
+                                    @method('PUT')
+                                    
                                     <div class="row">
                                         
                                         <div class="col-md-12">

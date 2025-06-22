@@ -16,6 +16,17 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        <!-- admin type -->
+        <div class="mt-4">
+            <x-input-label for="user_type" :value="__('User Type')" />
+            <select id="user_type" class="block mt-1 w-full border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm" name="is_admin" required>
+                <option value="" disabled selected>Select User Type</option> <!-- New option added here -->
+                <option value="0" {{ old('is_admin') == '0' ? 'selected' : '' }}>User</option>
+                <option value="1" {{ old('is_admin') == '1' ? 'selected' : '' }}>Admin</option>
+            </select>
+            <x-input-error :messages="$errors->get('is_admin')" class="mt-2" />
+        </div>
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />

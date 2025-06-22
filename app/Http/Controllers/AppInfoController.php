@@ -89,7 +89,7 @@ class AppInfoController extends Controller
             return response()->json(['status' => 0, 'error' => $validator->errors()->toArray()]);
         } else {
             try {
-                $appInfo->name = $request->app_name;
+                $appInfo->app_name = $request->app_name;
 
                 if ($request->hasFile('logo')) {
                     if ($appInfo->logo && File::exists($appInfo->logo_path . $appInfo->logo)) {

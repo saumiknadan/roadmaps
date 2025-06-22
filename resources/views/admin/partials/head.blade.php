@@ -10,7 +10,11 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../../assets/img/favicon/favicon.ico" />
+    @if(isset($appInfo->logo) && $appInfo->logo != null)
+        @if($appInfo->logo_path == "admin")
+            <link rel="icon" type="image/x-icon" href="{{ !empty($appInfo->logo) ? asset(env('ADMINPATH').$appInfo->logo) : '' }}" />
+        @endif
+    @endif
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
