@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RoadmapController;
+use App\Http\Controllers\AppInfoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::resource('admin/roadmaps', RoadmapController::class);
+    
+    // App Info
+    Route::get('admin/app-info', [AppInfoController::class, 'index'])->name('app-info.index');
+    Route::get('admin/app-info/create', [AppInfoController::class, 'create'])->name('app-info.create');
+    Route::post('admin/app-info', [AppInfoController::class, 'store'])->name('app-info.store');
+    Route::get('admin/app-info/{app_info}/edit', [AppInfoController::class, 'edit'])->name('app-info.edit');
+    Route::put('admin/app-info/{app_info}', [AppInfoController::class, 'update'])->name('app-info.update');
+
 
 });
 
