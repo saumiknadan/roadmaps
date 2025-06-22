@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\API\Auth\LoginController;
 use App\Http\Controllers\API\Auth\RegisterController;
+use App\Http\Controllers\API\RoadmapController;
+use App\Http\Controllers\API\CommentController;
+use App\Http\Controllers\API\UpvoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,5 +28,22 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Authentication
 Route::post('register', [RegisterController::class, 'store'])->name('api.register');
 Route::post('login', [LoginController::class, 'store'])->name('api.login');
-Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth:sanctum')->name('api.logout');
+// Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth:sanctum')->name('api.logout');
+
+
+Route::middleware('auth:sanctum')->group(function () {
+    // Logout route (requires being logged in to log out)
+    Route::post('logout', [LoginController::class, 'destroy'])->name('api.logout');
+
+    // Comment routes
+    Route::get('roadmaps/{roadmapId}/comments', [CommentController::class, 'index'])->name('api.roadmaps.comments');
+    Route::post('roadmaps/{roadmapId}/comments', [CommentController::class, 'store'])->name('api.roadmaps.comments.store');
+    Route::put('comments/{commentId}', [CommentController::class, 'update'])->name('api.comments.update');
+    Route::delete('comments/{commentId}', [CommentController::class, 'destroy'])->name('api.comments.destroy');
+
+    // Upvote route
+    Route::post('roadmaps/{roadmapId}/upvote', [UpvoteController::class, 'toggle'])->name('api.roadmaps.upvote.toggle');
+});
+
+Route::get('/roadmaps', [RoadmapController::class, 'index']);
 

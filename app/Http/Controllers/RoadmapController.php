@@ -13,7 +13,7 @@ class RoadmapController extends Controller
      */
     public function index(Request $request)
     {
-        // try {
+        try {
             $roadmaps = Roadmap::query();
             
             if ($request->filled('search')) {
@@ -26,10 +26,10 @@ class RoadmapController extends Controller
                 ->appends($request->query());
 
             return view('admin.roadmaps.index', compact('roadmaps'));
-        // } catch (\Throwable $th) {
-        //     session()->flash('error', 'Something went wrong');
-        //     return redirect()->back();
-        // }
+        } catch (\Throwable $th) {
+            session()->flash('error', 'Something went wrong');
+            return redirect()->back();
+        }
     }
 
     /**
