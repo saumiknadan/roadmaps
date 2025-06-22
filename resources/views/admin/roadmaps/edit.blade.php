@@ -101,13 +101,7 @@
                                                         <option value="API" {{ $roadmap->category == 'API' ? 'selected' : '' }}>API</option>
                                                         <option value="Feature" {{ $roadmap->category == 'Feature' ? 'selected' : '' }}>Feature</option>
                                                     </select>
-                                                </div>
-
-                                                <div class="action-btns">
-                                                    <a class="btn btn-label-primary me-3" href="{{ route('roadmaps.index') }}">
-                                                        <span class="align-middle">Cancel</span>
-                                                    </a>
-                                                </div>
+                                                </div>          
 
                                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Update</button>
 
