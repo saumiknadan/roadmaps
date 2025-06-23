@@ -21,7 +21,6 @@ use App\Http\Controllers\API\UpvoteController;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    dd(Auth::user());
     return $request->user();
 });
 
@@ -29,6 +28,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', [RegisterController::class, 'store'])->name('api.register');
 Route::post('login', [LoginController::class, 'store'])->name('api.login');
 // Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth:sanctum')->name('api.logout');
+
+Route::get('/roadmaps', [RoadmapController::class, 'index'])->name('api.roadmaps.index');
+Route::get('/roadmaps/{id}', [RoadmapController::class, 'show'])->name('api.roadmaps.show');
+
 
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -45,5 +48,4 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('roadmaps/{roadmapId}/upvote', [UpvoteController::class, 'toggle'])->name('api.roadmaps.upvote.toggle');
 });
 
-Route::get('/roadmaps', [RoadmapController::class, 'index']);
 

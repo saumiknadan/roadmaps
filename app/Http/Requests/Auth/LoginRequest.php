@@ -41,6 +41,21 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
+        if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+            throw ValidationException::withMessages([
+                'email' => __('auth.failed'),
+            ]);
+        }
+    
+        $user = Auth::user();
+    
+        if (!$user || $user->is_admin != 1) {
+            Auth::logout();
+            throw ValidationException::withMessages([
+                'email' => 'You are not authorized to access this area.',
+            ]);
+        }
+
         if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
 
