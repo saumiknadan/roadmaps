@@ -7,14 +7,7 @@
 @section('styles')
     
     
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/pickr/pickr-themes.css')}}" />
-
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/select2/select2.css')}}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/bootstrap-select/bootstrap-select.css')}}" />
-    
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/quill/typography.css')}}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/quill/katex.css')}}" />
-    <link rel="stylesheet" href="{{ asset('assets/vendor/libs/quill/editor.css')}}" />
+   
     
 
 @endsection
