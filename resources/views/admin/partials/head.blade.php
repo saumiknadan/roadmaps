@@ -1,3 +1,7 @@
+@php
+  $appInfo = App\Models\AppInfo::first();
+@endphp
+
 <meta charset="utf-8" />
     <meta
       name="viewport"

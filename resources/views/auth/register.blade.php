@@ -1,3 +1,7 @@
+@php
+  $appInfo = App\Models\AppInfo::first();
+@endphp
+
 <!doctype html>
 
 <html lang="en" class="light-style layout-wide customizer-hide" dir="ltr" data-theme="theme-default"
@@ -79,20 +83,7 @@
                             @enderror
                         </div>
 
-                        <div class="mb-3">
-                            <label for="userType" class="form-label">User Type</label>
-                            <select
-                                id="is_admin"
-                                class="select2 form-select w-100"
-                                data-style="btn-default"
-                                data-live-search="true"
-                                name="is_admin"
-                                required >
-                                <option value="" selected disabled>Select User Type</option>
-                                <option value="1">Admin</option>
-                                <option value="0">General User</option>
-                            </select>
-                        </div>
+                        <input type="hidden" class="form-control"  id="is_admin" name="is_admin" value="1" />
 
                         <div class="mb-3 form-password-toggle">
                             <div class="d-flex justify-content-between">

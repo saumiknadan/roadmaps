@@ -58,27 +58,6 @@
             <div data-i18n="App Info">App Info</div>
         </a>
       </li>
-    
-
-      <!-- Forms & Tables -->
-      {{-- <li class="menu-header small text-uppercase">
-        <span class="menu-header-text" data-i18n="Forms & Tables">Forms &amp; Tables</span>
-      </li> --}}
-     
-
-      <li class="menu-item">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <i class="menu-icon tf-icons ti ti-text-wrap-disabled"></i>
-          <div data-i18n="Form Wizard">Form Wizard</div>
-        </a>
-        <ul class="menu-sub">
-          <li class="menu-item">
-            <a href="form-wizard-numbered.html" class="menu-link">
-              <div data-i18n="Numbered">Numbered</div>
-            </a>
-          </li>
-        </ul>
-      </li>
 
       <li class="menu-item">
         <a href="{{ route('roadmaps.index') }}" class="menu-link">
