@@ -25,9 +25,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['au
 Route::middleware('auth')->group(function () {
 
     Route::resource('users', UsersController::class);
-
-    Route::get('/', [DashboardController::class, 'index']);
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
