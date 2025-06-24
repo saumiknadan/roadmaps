@@ -8,6 +8,7 @@ use App\Http\Controllers\API\Auth\RegisterController;
 use App\Http\Controllers\API\RoadmapController;
 use App\Http\Controllers\API\CommentController;
 use App\Http\Controllers\API\UpvoteController;
+use App\Http\Controllers\API\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Upvote route
     Route::post('roadmaps/{roadmapId}/upvote', [UpvoteController::class, 'toggle'])->name('api.roadmaps.upvote.toggle');
+
+    // Category
+    Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index');
+
 });
 
 

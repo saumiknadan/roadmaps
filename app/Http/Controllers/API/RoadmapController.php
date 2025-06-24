@@ -32,6 +32,10 @@ class RoadmapController extends Controller
                 $roadmaps->where('status', $request->status);
             }
 
+            if ($request->filled('category') && $request->status !== '') { 
+                $roadmaps->where('category', $request->category);
+            }
+
             $perPage = $request->input('per_page', 10);
 
             $roadmaps = $roadmaps->orderByDesc('id')
