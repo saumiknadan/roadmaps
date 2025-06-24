@@ -38,6 +38,13 @@
         </a>
       </li>
 
+      <li class="menu-item {{ request()->routeIs('users*') ? 'active' : '' }}">
+        <a href="{{ route('users.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-layout-dashboard"></i>
+            <div data-i18n="Users">Users</div>
+        </a>
+      </li>
+
       <li class="menu-item {{ request()->routeIs('categories*') ? 'active' : '' }}">
         <a href="{{ route('categories.index') }}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-layout-dashboard"></i>
@@ -45,7 +52,7 @@
         </a>
       </li>
 
-      <li class="menu-item {{ request()->routeIs('app-info') ? 'active' : '' }}">
+      <li class="menu-item {{ request()->routeIs('app-info*') ? 'active' : '' }}">
         <a href="{{ route('app-info.create') }}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-layout-dashboard"></i>
             <div data-i18n="App Info">App Info</div>
