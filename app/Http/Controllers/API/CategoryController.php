@@ -18,7 +18,6 @@ class CategoryController extends Controller
             return response()->json($categories);
 
         } catch (\Throwable $th) {
-            \Log::error('Error fetching categories via API: ' . $th->getMessage());
             return response()->json([
                 'message' => 'Something went wrong while fetching categories.',
                 'error' => $th->getMessage()

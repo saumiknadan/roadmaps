@@ -9,6 +9,7 @@ use App\Http\Controllers\API\RoadmapController;
 use App\Http\Controllers\API\CommentController;
 use App\Http\Controllers\API\UpvoteController;
 use App\Http\Controllers\API\CategoryController;
+use App\Http\Controllers\API\AppInfoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +29,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // Authentication
 Route::post('register', [RegisterController::class, 'store'])->name('api.register');
 Route::post('login', [LoginController::class, 'store'])->name('api.login');
-// Route::post('logout', [LoginController::class, 'destroy'])->middleware('auth:sanctum')->name('api.logout');
 
 Route::get('/roadmaps', [RoadmapController::class, 'index'])->name('api.roadmaps.index');
 Route::get('/roadmaps/{id}', [RoadmapController::class, 'show'])->name('api.roadmaps.show');
@@ -50,6 +50,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     // Category
     Route::get('categories', [CategoryController::class, 'index'])->name('api.categories.index');
+    Route::get('app-info', [AppInfoController::class, 'index'])->name('api.app-info.index');
 
 });
 
