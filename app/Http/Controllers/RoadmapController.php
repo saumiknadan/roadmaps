@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Roadmap;
+use App\Models\Category;
 use Validator;
 
 class RoadmapController extends Controller
@@ -38,10 +39,12 @@ class RoadmapController extends Controller
     public function create()
      {
          try {
-             return view('admin.roadmaps.create');
+            $categories = Category::where('status', 1)->get();
+
+            return view('admin.roadmaps.create', compact( 'categories'));
          } catch (\Exception $e) {
-             session()->flash('error', 'Something went wrong');
-             return redirect()->back();
+            session()->flash('error', 'Something went wrong');
+            return redirect()->back();
          }
      }
 
@@ -90,7 +93,12 @@ class RoadmapController extends Controller
     {
         try {
             $roadmap = Roadmap::findOrFail($id);
-            return view('admin.roadmaps.edit', compact('roadmap'));
+
+            $categories = Category::where('status', 1)
+                                    ->orWhere('name', $roadmap->category)
+                                    ->get();
+
+            return view('admin.roadmaps.edit', compact('roadmap', 'categories'));
         } catch (\Throwable $th) {
             session()->flash('error', 'Something went wrong');
             return redirect()->back();

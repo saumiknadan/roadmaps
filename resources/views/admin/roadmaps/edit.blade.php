@@ -96,10 +96,11 @@
                                                         name="category"
                                                         required>
                                                         <option value="" disabled>Select Category</option>
-                                                        <option value="UI" {{ $roadmap->category == 'UI' ? 'selected' : '' }}>UI</option>
-                                                        <option value="Backend" {{ $roadmap->category == 'Backend' ? 'selected' : '' }}>Backend</option>
-                                                        <option value="API" {{ $roadmap->category == 'API' ? 'selected' : '' }}>API</option>
-                                                        <option value="Feature" {{ $roadmap->category == 'Feature' ? 'selected' : '' }}>Feature</option>
+                                                        @foreach ($categories as $category)
+                                                            <option value="{{ $category->name }}" {{ $roadmap->category == $category->name ? 'selected' : '' }}>
+                                                                {{ $category->name }}
+                                                            </option>
+                                                        @endforeach
                                                     </select>
                                                 </div>          
 

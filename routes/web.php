@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\RoadmapController;
 use App\Http\Controllers\AppInfoController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,8 +36,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    Route::resource('admin/roadmaps', RoadmapController::class);
-    
     // App Info
     Route::get('admin/app-info', [AppInfoController::class, 'index'])->name('app-info.index');
     Route::get('admin/app-info/create', [AppInfoController::class, 'create'])->name('app-info.create');
@@ -44,6 +43,12 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/app-info/{app_info}/edit', [AppInfoController::class, 'edit'])->name('app-info.edit');
     Route::put('admin/app-info/{app_info}', [AppInfoController::class, 'update'])->name('app-info.update');
 
+    // Category
+    Route::resource('categories', CategoryController::class);
+    Route::get('cat-status{category}', [CategoryController::class, 'change_status'])->name('categories.status');
+
+    // Roadmap
+    Route::resource('admin/roadmaps', RoadmapController::class);
 
 });
 

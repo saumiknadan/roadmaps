@@ -38,6 +38,13 @@
         </a>
       </li>
 
+      <li class="menu-item {{ request()->routeIs('categories*') ? 'active' : '' }}">
+        <a href="{{ route('categories.index') }}" class="menu-link">
+            <i class="menu-icon tf-icons ti ti-layout-dashboard"></i>
+            <div data-i18n="Category">Category</div>
+        </a>
+      </li>
+
       <li class="menu-item {{ request()->routeIs('app-info') ? 'active' : '' }}">
         <a href="{{ route('app-info.create') }}" class="menu-link">
             <i class="menu-icon tf-icons ti ti-layout-dashboard"></i>

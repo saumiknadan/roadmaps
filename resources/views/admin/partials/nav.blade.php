@@ -41,8 +41,8 @@
                 <!-- User -->
                 <li class="nav-item navbar-dropdown dropdown-user dropdown">
                   <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
-                    <div class="avatar avatar-online">
-                      {{-- <img src="../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" /> --}}
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                      <i class="fas fa-user text-indigo-600"></i>
                     </div>
                   </a>
                   <ul class="dropdown-menu dropdown-menu-end">
@@ -50,8 +50,8 @@
                       <a class="dropdown-item" href="pages-account-settings-account.html">
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
-                            <div class="avatar avatar-online">
-                              {{-- <img src="../../assets/img/avatars/1.png" alt class="h-auto rounded-circle" /> --}}
+                            <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center">
+                              <i class="fas fa-user text-indigo-600"></i>
                             </div>
                           </div>
                           <div class="flex-grow-1">

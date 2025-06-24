@@ -99,10 +99,9 @@
                                                             name="category"
                                                             required >
                                                             <option value="" selected disabled>Select Category</option>
-                                                            <option value="UI">UI</option>
-                                                            <option value="Backend">Backend</option>
-                                                            <option value="API">API</option>
-                                                            <option value="Feature">Feature</option>
+                                                            @foreach ($categories as $category)
+                                                                <option value="{{ $category->name }}"> {{ $category->name }} </option>
+                                                            @endforeach
                                                         </select>
                                                     </div>
 
